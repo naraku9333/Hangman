@@ -49,7 +49,7 @@ namespace sv
             while ((correct_word = get_http_data("randomword.setgetgo.com", "get.php")).length() < 5){}
             out_word.clear();
             std::replace_copy_if(correct_word.begin(), correct_word.end(), std::back_inserter(out_word), ::isalpha, '*');
-            std::cout << correct_word << " " << out_word << std::endl;
+            //std::cout << correct_word << " " << out_word << std::endl;//Debugging
         }
 
     }
