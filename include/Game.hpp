@@ -15,13 +15,12 @@ namespace sv
         ResMan<sf::Texture> textures;
         ResMan<sf::Font> fonts;
 
-        const std::string letters;
+        const std::string letters = "abcdefghijklmnopqrstuvwxyz";
         std::string out_letters;
         std::string correct_word, out_word;
         char guess;
 
         sf::Text output;
-        sf::Sprite background;
 
         Body body;
         State state;
