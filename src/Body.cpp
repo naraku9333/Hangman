@@ -14,6 +14,7 @@ namespace sv
     }
 
     Body::Body(const sf::Texture& tex) :
+        parts_to_draw(0),
         parts({ { tex, sf::IntRect(0, 0, 84, 152), { 367, 94 } },
                 { tex, sf::IntRect(84, 0, 84, 152), { 365, 195 } },
                 { tex, sf::IntRect(168, 0, 84, 152), { 300, 195 } },

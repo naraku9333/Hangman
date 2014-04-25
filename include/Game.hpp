@@ -18,7 +18,7 @@ namespace sv
         const std::string letters = "abcdefghijklmnopqrstuvwxyz";
         std::string out_letters;
         std::string correct_word, out_word;
-        char guess;
+        char guess = '\0';
 
         sf::Text output;
 

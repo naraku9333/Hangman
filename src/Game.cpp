@@ -40,24 +40,25 @@ namespace sv
     {
         if (state == State::Play && guess != '\0')
         {
-            //remove the list of avialable letters
+            //remove the list of avialable letters           
+            bool found = false;
             if (out_letters.find(::tolower(guess)) != std::string::npos)
+            {
                 out_letters.replace(::tolower(guess) - 'a', 1, "_");
 
-            auto p = correct_word.begin();
-            bool found = false;
-            while ((p = std::find_if(p, correct_word.end(), 
-                [this](const char c){ return ::tolower(guess) == ::tolower(c); })) != correct_word.end())
-            {                    
-                found = true;
-                out_word[p - correct_word.begin()] = *p;
-                ++p;  
-                if (out_word == correct_word)
+                auto p = correct_word.begin();
+                while ((p = std::find_if(p, correct_word.end(),
+                    [this](const char c){ return ::tolower(guess) == ::tolower(c); })) != correct_word.end())
                 {
-                    state = State::Win;
-                    break;
+                    found = true;
+                    out_word[p - correct_word.begin()] = *(p++);
+                    if (out_word == correct_word)
+                    {
+                        state = State::Win;
+                        break;
+                    }
                 }
-            }                
+            }
             if (!found)
             {
                 ++body;
